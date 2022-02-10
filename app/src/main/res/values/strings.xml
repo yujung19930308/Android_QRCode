@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MLKit_QRCode_Reader</string>
+    <string name="txt_label">請把 QR Code 放進掃描區</string>
+    <string name="img_content">QR Code Scan Rect</string>
+    <string name="flash_description">flashlight button</string>
+    <string name="visit_link">前往</string>
+    <string name="sms_send">發送簡訊</string>
+    <string name="sms_title">QR圖碼：簡訊</string>
+    <string name="sms_recipient">收件者：%1$s</string>
+    <string name="sms_content">內文：%1$s</string>
+    <string name="scan_title">掃描結果</string>
+    <string name="txt_content">文字：%1$s</string>
+    <string name="btn_confirm">確定</string>
+    <string name="txt_img_contentDescription">文字圖示</string>
+</resources>
