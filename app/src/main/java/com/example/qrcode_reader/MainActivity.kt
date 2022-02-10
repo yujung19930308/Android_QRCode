@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.text.TextUtils
+import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity(), IBarcodeResultListener{
     private var bottomSheet = BarcodeURLBottomSheet()
     private var smsBottomSheet = BarcodeSMSBottomSheet()
     private var iSendSMS = false
+    private var iErrorURL = false
     private var curMillis = 0L
     private var barcodeTextDialog: BarcodeTextDialog ?= null
 
@@ -156,6 +158,7 @@ class MainActivity : AppCompatActivity(), IBarcodeResultListener{
         if (barcodes.isEmpty()) {
             if (System.currentTimeMillis() - curMillis >= millisDiff) {
                 iSendSMS = false
+                iErrorURL = false
             }
             return
         }
@@ -167,8 +170,11 @@ class MainActivity : AppCompatActivity(), IBarcodeResultListener{
                 Barcode.TYPE_URL -> {
                     //we have the URL here
                     val url = barcode.url?.url
-                    LogUtil.d(TAG, "url=$url")
-                    if (!bottomSheet.isAdded) {
+                    if(!url?.isValidUrl()!! && !iErrorURL) {
+                        Toast.makeText(this, "URL錯誤，請確認URL是否正確", Toast.LENGTH_SHORT).show()
+                        iErrorURL = true
+                    }
+                    if (!bottomSheet.isAdded && !iErrorURL) {
                         bottomSheet.show(supportFragmentManager, "URL")
                         bottomSheet.updateURL(barcode.url?.url.toString())
                     }
@@ -221,4 +227,6 @@ class MainActivity : AppCompatActivity(), IBarcodeResultListener{
         barcodeTextDialog?.setCancelable(true)
         barcodeTextDialog?.show()
     }
+    //確認URL是否有可用
+    private fun String.isValidUrl(): Boolean = Patterns.WEB_URL.matcher(this).matches()
 }
