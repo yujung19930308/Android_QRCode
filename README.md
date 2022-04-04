@@ -6,13 +6,9 @@ An Android QR Code Scanner Sample Project. (Use Google ML Kit Barcode Scannig)
 
 ## 使用案例
 
----
-
 ![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_sample.gif)
 
 ## 參考資料
-
----
 
 * [QR Code Reader Android Kotlin Tutorial using ML Kit](https://www.simplifiedcoding.net/qr-code-reader-android-kotlin/)
 
