@@ -6,7 +6,17 @@ An Android QR Code Scanner Sample Project. (Use Google ML Kit Barcode Scannig)
 
 ## 使用案例
 
-![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_sample.gif)
+簡訊掃描（1922、一般簡訊）
+
+![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_1922.gif)![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_sms.gif)
+
+網址連結掃描
+
+![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_url.gif)
+
+文字內容掃描
+
+![image](https://github.com/yujung19930308/Android_QRCode/blob/main/qrcode_scan_text.gif)
 
 ## 參考資料
 
